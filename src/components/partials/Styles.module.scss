@@ -1,0 +1,337 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.categoriesContainer {
+  max-height: 90px;
+  border: none !important;
+  box-shadow: none;
+  text-shadow: none;
+  height: 100%;
+  @include flex;
+  cursor: pointer;
+  text-shadow: none;
+  box-shadow: none;
+  position: relative;
+  &.isNotActive {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+  @include breakpoint('tablet-mini') {
+    flex-wrap: wrap;
+  }
+}
+
+.lotusCortinaHeaderLink {
+  display: inline-block;
+  color: $mainWhiteColor;
+  padding: 10px;
+  font-size: 1.4rem;
+  text-decoration: none;
+  .linkLargeDevice,
+  .linkSmallDevice {
+    display: inline-block;
+  }
+  .linkSmallDevice {
+    display: none;
+    @include breakpoint('large-tab') {
+      display: inline-block;
+    }
+  }
+  .linkLargeDevice {
+    @include breakpoint('large-tab') {
+      display: none;
+    }
+  }
+}
+
+.topHeader {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  background-color: transparent;
+  @include transition(all, 0.5s, ease-in-out);
+
+  @include breakpoint('tab') {
+    position: relative;
+    overflow: hidden;
+    &.headerLarge {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 500;
+    }
+  }
+  &.headerLarge {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+    background-color: transparent;
+    @include breakpoint('tab') {
+      position: relative;
+    }
+  }
+
+  .contactDetailsWrapper {
+    background: $semiGrey url(#{$assetPath}/pattern-grit.png) center/325px;
+    height: auto;
+    width: 100%;
+    @include flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    @include transition(all, 0.45s, ease-in-out);
+    @include breakpoint('phone') {
+      flex-wrap: wrap;
+    }
+
+    &.hidePanel {
+      pointer-events: none;
+      .searchButtonOpenPanel {
+        pointer-events: none;
+        opacity: 0.3;
+      }
+    }
+  }
+
+  .headerSection {
+    padding: 15px 15px 15px 0;
+    align-items: center;
+    @include breakpoint('tab') {
+      @include flex;
+      align-items: center;
+      @include flex-direction(column);
+      width: 100%;
+      justify-content: center;
+      padding: 15px;
+    }
+    @include breakpoint('phone') {
+      padding: 0;
+    }
+  }
+
+  .mainNavTopContainer {
+    max-width: 100%;
+    width: 100%;
+    @include breakpoint('mini-tab') {
+      padding: 0 15px;
+    }
+    .topNavWrapper {
+      @include flex;
+      height: 70px;
+      align-items: center;
+      position: relative;
+      opacity: 0;
+      visibility: hidden;
+
+      @include transform(translate(100%, 0));
+      -webkit-animation: menuBarSlideIn 0.5s forwards;
+      -webkit-animation-delay: 2s;
+      animation: menuBarSlideIn 0.5s forwards;
+      animation-delay: 1s;
+
+      @include breakpoint('tab') {
+        justify-content: flex-end;
+        width: 100%;
+      }
+      @include breakpoint('phone') {
+        height: auto;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+    }
+  }
+
+  .logoWrapper {
+    width: 100%;
+    max-width: 270px;
+    background-color: #fff;
+    padding: 15px 30px;
+    @include transition(all, 0.3s, ease-in-out);
+    @include breakpoint('tab') {
+      max-width: 100%;
+      padding: 10px;
+    }
+    .mainLogo {
+      display: block;
+      position: relative;
+      width: 100%;
+      min-height: 60px;
+      min-width: 60px;
+      @media (max-width: 1440px) {
+        width: 100%;
+      }
+      @include breakpoint('tab') {
+        width: calc(20% + 15px);
+        min-height: 50px;
+        min-width: 50px;
+        margin: 0 auto 10px auto;
+      }
+      @include breakpoint('phone') {
+        width: 150px;
+      }
+      .logoImg {
+        width: 100%;
+        height: 100%;
+        @include flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        flex-wrap: wrap;
+        svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+        img {
+          display: block;
+          height: auto;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  &.headerShrink {
+    background-color: $light-grey;
+    padding: 0;
+    height: auto;
+    border-bottom: 4px solid $lightGrey;
+    @include breakpoint('tab') {
+      position: relative;
+    }
+
+    @include breakpoint('phone') {
+      background-color: transparent;
+    }
+
+    .contactDetailsWrapper {
+      @include transform(translate(0, -100%));
+      max-height: 0;
+      display: none;
+    }
+    .menuLogoSection {
+      top: 0;
+      left: 0;
+      position: relative;
+      width: 100%;
+      @include transition(all, 0.3s, ease-in-out);
+      .headerSection {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .logoWrapper {
+        width: 100%;
+        max-width: 200px;
+        background-color: transparent;
+        padding: 15px;
+        @include transition(all, 0.3s, ease-in-out);
+        @include breakpoint('tab') {
+          max-width: 100%;
+        }
+        .mainLogo {
+          display: block;
+          position: relative;
+          width: calc(80% + 15px);
+          min-height: 60px;
+          min-width: 60px;
+          @media (max-width: 1440px) {
+            width: calc(70% + 15px);
+          }
+          @include breakpoint('tab') {
+            width: calc(20% + 15px);
+            min-height: 50px;
+            min-width: 50px;
+            margin: 0 auto 10px auto;
+          }
+          @include breakpoint('phone') {
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.menuLogoSection {
+  position: relative;
+  @include transition(all, 0.4s, linear);
+}
+
+.searchContainer {
+  height: 0px;
+  overflow: hidden;
+  z-index: 720;
+  background: $mainWhiteColor;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  right: 0;
+  visibility: hidden;
+  width: 100%;
+  @include transition(all, 0.4s, ease-in-out);
+  &.searchContainerActive {
+    width: 100%;
+    height: 100vh;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .iconClose {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    @include flex;
+    @include flex-direction(column);
+    justify-content: center;
+    align-items: center;
+    right: 25px;
+    color: $mainBlackColor;
+    top: 25px;
+    z-index: 750;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    background-color: transparent;
+    [tabindex] {
+      outline: none !important;
+    }
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .srOnly {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(255, 255, 255, 255);
+      white-space: nowrap;
+      border: 0;
+    }
+  }
+}
+
+@-webkit-keyframes menuBarSlideIn {
+  100% {
+    opacity: 1;
+    visibility: visible;
+    @include transform(translate(0, 0));
+  }
+}
+
+@keyframes menuBarSlideIn {
+  100% {
+    opacity: 1;
+    visibility: visible;
+    @include transform(translate(0, 0));
+  }
+}

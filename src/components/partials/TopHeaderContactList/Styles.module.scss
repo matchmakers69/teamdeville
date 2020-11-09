@@ -1,0 +1,120 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.contactDetailsList {
+  @include flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  @include breakpoint('phone') {
+    padding: 10px 0;
+    justify-content: space-between;
+  }
+  .detailsItem {
+    margin-right: 10px;
+    @include breakpoint('phone') {
+      margin-right: 15px;
+    }
+    @include flex;
+    align-items: center;
+    justify-content: center;
+    &.dropDownAccount {
+      position: relative;
+      .detailsLink {
+        @include flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $mainWhiteColor;
+        padding: 6px 10px;
+        @include breakpoint('phone') {
+          padding: 0;
+          border: none;
+        }
+        &.isNotActive {
+          pointer-events: none;
+          opacity: 0.3;
+        }
+      }
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+
+    .detailsLink {
+      color: $mainWhiteColor;
+      text-decoration: none;
+      font-size: 1.4rem;
+      @include flex;
+      align-items: center;
+      font-weight: 500;
+
+      .textLink,
+      .iconWrapper {
+        display: inline-block;
+        color: inherit;
+        font-weight: inherit;
+      }
+      .loginDetailsWrapper {
+        @include flex;
+        align-items: center;
+        color: inherit;
+        font-weight: inherit;
+
+        .loginText,
+        .userLoginWrapper {
+          display: inline-block;
+          color: $mainWhiteColor;
+        }
+
+        .userLoginWrapper {
+          margin: 0 5px;
+          font-weight: 600;
+          @include breakpoint('phone') {
+            display: none;
+          }
+        }
+      }
+      .textLink {
+        @include breakpoint('tab') {
+          display: none;
+        }
+        &.totalFavourites {
+          margin-right: 5px;
+        }
+      }
+
+      .iconWrapper {
+        width: 22px;
+        height: 22px;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: 50% 50%;
+        margin-right: 7px;
+
+        &.emailIcon {
+          background-image: url(#{$assetPath}/mail-icon.svg);
+          background-size: 95% auto;
+        }
+
+        &.telIcon {
+          background-image: url(#{$assetPath}/phone-icon.svg);
+          background-size: 68% auto;
+        }
+
+        &.userIcon {
+          background-image: url(#{$assetPath}/user-icon.svg);
+          background-size: 80% auto;
+        }
+
+        &.favIcon {
+          background-image: url(#{$assetPath}/favourites-icon.svg);
+          background-size: 100% auto;
+        }
+      }
+    }
+  }
+}

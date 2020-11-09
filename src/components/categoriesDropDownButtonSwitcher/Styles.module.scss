@@ -1,0 +1,153 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.buttonContainer {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  height: 70px;
+  max-width: 200px;
+  @include breakpoint('tablet-mini') {
+    display: none;
+  }
+  &.wooCommerceButton {
+    .wooButton {
+      @include flex;
+      align-items: center;
+      height: 100%;
+      transition: transform 0.3s cubic-bezier(0.3, 0.1, 0.3, 1),
+        opacity 0.3s cubic-bezier(0.3, 0.1, 0.3, 1), visibility 0s 0.3s,
+        -webkit-transform 0.3s cubic-bezier(0.3, 0.1, 0.3, 1);
+      box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.05);
+      background-color: $mainWhiteColor;
+      padding: 15px 22px;
+      @include breakpoint('tablet-mini') {
+        display: none;
+      }
+
+      .viewCategoriesText {
+        @include flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: $navyGrey;
+        white-space: nowrap;
+        font-weight: 700;
+        font-size: 12px;
+        text-transform: uppercase;
+        @include flex-direction(column);
+        letter-spacing: 3px;
+        margin-right: 5px;
+        @include breakpoint('mini-tab') {
+          display: none;
+        }
+      }
+      .arrowDownIcon,
+      .mobileCatIcon {
+        overflow: hidden;
+        @include flex;
+        align-items: center;
+        justify-content: center;
+        @include flex-direction(column);
+      }
+
+      .mobileCatIcon {
+        display: none;
+        @include breakpoint('mini-tab') {
+          @include flex;
+          width: 30px;
+          height: 30px;
+        }
+        svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+          fill: $darkOrange;
+        }
+      }
+      .arrowDownIcon {
+        width: 20px;
+        height: 20px;
+
+        svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+          fill: $darkOrange;
+        }
+      }
+    }
+  }
+}
+
+.switcherWrapper {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  background: $mainBlackColor;
+  min-height: 60px;
+  min-width: 60px;
+  -webkit-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 20px 40px 0 rgba(180, 74, 74, 0.05);
+  -webkit-transition: background-color 0.3s cubic-bezier(0.3, 0.1, 0.3, 1);
+  transition: background-color 0.3s cubic-bezier(0.3, 0.1, 0.3, 1);
+  z-index: 200;
+
+  .hamburgerSwitcherWrapper {
+    @include transform(translate(-50%, -50%));
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 26px;
+    height: 16px;
+    cursor: pointer;
+    box-sizing: content-box;
+    padding: 0;
+
+    .hamburgerSwitcherBar {
+      display: block;
+      position: absolute;
+      height: 1px;
+      background-color: $mainWhiteColor;
+      left: 0;
+      right: 0;
+      -webkit-transform: rotate(0deg) scaleX(1) translateY(0);
+      transform: rotate(0deg) scaleX(1) translateY(0);
+      @include transition(all, 0.3s, linear);
+      @include transform-origin(left center);
+      top: 7.5px;
+      border-radius: 1px;
+      &:first-child {
+        @include transform-origin(left top);
+        top: 0;
+      }
+      &:last-child {
+        @include transform-origin(left bottom);
+        top: 15px;
+      }
+    }
+  }
+  &.openCategoryNav {
+    background-color: $mainWhiteColor;
+    .hamburgerSwitcherWrapper {
+      .hamburgerSwitcherBar {
+        background-color: $mainBlackColor;
+        &:first-child {
+          -webkit-transform: translateX(6px) rotate(45deg) scaleX(0.82465);
+          transform: translateX(6px) rotate(45deg) scaleX(0.82465);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+          -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+        }
+        &:last-child {
+          -webkit-transform: translateX(6px) rotate(-45deg) scaleX(0.82465);
+          transform: translateX(6px) rotate(-45deg) scaleX(0.82465);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,145 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.searchForm {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  @include flex;
+  align-items: center;
+  border-bottom: 1px solid $mainBlackColor;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  top: 50%;
+  @include transform(translate(0, -50%));
+  position: relative;
+
+  @include breakpoint('phone') {
+    padding: 60px 10px 0 10px;
+    max-width: 90%;
+    top: 0;
+    @include transform(translate(0, 0));
+  }
+  input[type='text'] {
+    width: 100%;
+    height: 45px;
+    border: none;
+    background-color: transparent;
+    font-size: 1.6rem;
+
+    @include breakpoint('phone') {
+      font-size: 1.4rem;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .buttonSearch {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    outline: none !important;
+    border: none;
+    padding: 0;
+    margin: 0 0 0 -25px;
+    &:disabled {
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    .iconContainer {
+      @include flex;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      @include flex-direction(column);
+      justify-content: center;
+      align-items: center;
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  ::-webkit-input-placeholder {
+    color: $mediumGreyColor;
+    font-size: 1.6rem;
+  }
+  :-moz-placeholder {
+    color: $mediumGreyColor;
+    opacity: 1;
+    font-size: 1.6rem;
+  }
+  ::-moz-placeholder {
+    color: $mediumGreyColor;
+    opacity: 1;
+    font-size: 1.6rem;
+  }
+  :-ms-input-placeholder {
+    color: $mediumGreyColor;
+    font-size: 1.6rem;
+  }
+  ::-ms-input-placeholder {
+    color: $mediumGreyColor;
+    font-size: 1.6rem;
+  }
+
+  ::placeholder {
+    color: $mediumGreyColor;
+    font-size: 1.6rem;
+  }
+}
+
+.inputQuickSearchWrapper {
+  padding: 0;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  @include flex;
+  align-items: center;
+  justify-content: space-between;
+  input[type='text'] {
+    width: 100%;
+    height: 45px;
+    padding: 5px;
+    background-color: transparent;
+    font-size: 1.6rem;
+    border: 1px solid $mediumGreyColor;
+    @include breakpoint('phone') {
+      font-size: 1.4rem;
+      padding: 0 10px;
+      margin: 0;
+    }
+  }
+  ::-webkit-input-placeholder {
+    color: $mediumGreyColor;
+    font-size: 1.6rem;
+  }
+  :-moz-placeholder {
+    color: $mediumGreyColor;
+    opacity: 1;
+    font-size: 1.6rem;
+  }
+  ::-moz-placeholder {
+    color: $mediumGreyColor;
+    opacity: 1;
+    font-size: 1.6rem;
+  }
+  :-ms-input-placeholder {
+    color: $mediumGreyColor;
+    font-size: 1.6rem;
+  }
+  ::-ms-input-placeholder {
+    color: $mediumGreyColor;
+    font-size: 1.6rem;
+  }
+
+  ::placeholder {
+    color: $mediumGreyColor;
+    font-size: 1.6rem;
+  }
+}

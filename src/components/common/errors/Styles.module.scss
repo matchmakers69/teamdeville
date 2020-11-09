@@ -1,0 +1,32 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.alertLogin {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    border-radius: 0;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: normal;
+    color: #a82a30;
+    background-color: #fff2f2;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #f2dada;
+    @include flex;
+    justify-content: flex-start;
+    align-items: center;
+    strong {
+        font-size: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+        line-height: inherit;
+        font-style: inherit;
+        text-decoration: inherit;
+        color: inherit;
+    }
+}

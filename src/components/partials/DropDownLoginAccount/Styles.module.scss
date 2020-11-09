@@ -1,0 +1,90 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.loginTipsWrapper {
+  margin-bottom: 5px;
+  .loginTipsButton {
+    padding: 0;
+    margin: 0 0 10px 0;
+    background-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+    outline: none !important;
+    font-size: 1.4rem;
+    color: $mainWhiteColor;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 1px solid $mainWhiteColor;
+  }
+}
+
+.dropDownLogin {
+  position: absolute;
+  pointer-events: all;
+  z-index: 400;
+  top: 44px;
+  right: 0;
+  @include breakpoint('phone') {
+    right: -57px;
+  }
+  .dropDownInner {
+    width: 315px;
+
+    background-color: $mainWhiteColor;
+    opacity: 0;
+    @include transform(translate(0, -100%));
+    @include transition(all 0.3s, ease-out);
+    overflow: hidden;
+    &.dropDownActive {
+      @include transform(translate(0, 0));
+      opacity: 1;
+    }
+    .innerAccountHeader {
+      @include flex;
+      @include flex-direction(column);
+      background-color: $lightGreyColor;
+      padding: 15px;
+      justify-content: center;
+      align-items: center;
+    }
+    .summaryHeader {
+      @include flex-direction(column);
+      background-color: $darkOrange;
+      padding: 10px 15px 15px 15px;
+      .closeDropDownBtn {
+        padding: 0;
+        margin: 0 0 10px 0;
+        background-color: transparent;
+        box-shadow: none;
+        text-shadow: none;
+        border: none;
+        outline: none !important;
+        font-size: 1.4rem;
+        color: $mainWhiteColor;
+        cursor: pointer;
+        position: relative;
+        border-bottom: 1px solid $mainWhiteColor;
+      }
+      .loginDetailsContainer {
+        @include flex;
+      }
+      .loginText,
+      .userLoginWrapper {
+        display: block;
+        font-size: 1.4rem;
+        color: $mainWhiteColor;
+        @include breakpoint('tab') {
+          font-size: 1.2rem;
+        }
+      }
+      .loginText {
+        margin-right: 5px;
+        color: $mainWhiteColor;
+      }
+      .userLoginWrapper {
+        font-weight: $fontSemiBold;
+      }
+    }
+  }
+}

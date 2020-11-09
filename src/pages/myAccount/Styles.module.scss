@@ -1,0 +1,26 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.textIntro {
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  color: $dark-links;
+
+  &.bolderText {
+    font-weight: $fontSemiBold;
+  }
+  .logoutMyPage {
+    color: $darkOrange;
+  }
+}
+
+.logoutButton {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 1.6rem;
+  color: $darkOrange;
+  font-weight: $fontSemiBold;
+}

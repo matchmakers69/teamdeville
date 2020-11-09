@@ -1,0 +1,9 @@
+@import '../../styles/variables.scss';
+        @import '../../styles/mixins.scss';
+        .buttonRegisterWrapper {
+            width: 100%;
+            justify-content: center;
+            @include flex;
+            @include flex-direction(column);
+            padding: 20px 0;
+        }

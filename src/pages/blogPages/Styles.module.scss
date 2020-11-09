@@ -1,0 +1,42 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.singlePostContent {
+  padding: 0 0 0 30%;
+  @include breakpoint('mini-tab') {
+    padding: 0 0 0 10%;
+  }
+  @include breakpoint('phone') {
+    padding: 0;
+  }
+  .headerDetailsPost {
+    @include flex;
+    flex-wrap: wrap;
+    margin: 0 -15px 20px -15px;
+
+    .colDetails {
+      padding: 0 15px;
+      .postDetailsPost {
+        display: block;
+        font-weight: $oswaldSemiBold;
+        font-size: 18px;
+        line-height: 1.2;
+        color: #ccc;
+        font-family: $seconfFontFamily;
+        @include breakpoint('phone') {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .singlePostText,
+  p {
+    line-height: 1.8;
+    font-size: 1.8rem;
+    @include breakpoint('phone') {
+      line-height: 1.6;
+      font-size: 1.6rem;
+    }
+  }
+}

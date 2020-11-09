@@ -1,0 +1,17 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.buttonAddToShoppingListWrapper {
+  width: 100%;
+  margin: 0 auto;
+  @include flex;
+  @include flex-direction(column);
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0 10px 0;
+  > button {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+}

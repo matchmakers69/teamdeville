@@ -1,0 +1,129 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+// Forms
+.orderForm {
+  overflow: hidden;
+  width: 100%;
+}
+
+.inputsSpacer {
+  margin-bottom: 15px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.error {
+  display: block;
+  font-size: 1.2rem;
+  margin: 3px 0;
+  color: $darkOrange;
+}
+
+.inputsSpacer {
+  label {
+    text-align: left;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 5px;
+    color: $semiGrey;
+    padding: 0;
+    &.labelError {
+      color: $redColor;
+    }
+    &.darkLabel {
+      color: $semiGrey;
+    }
+    &.lightLabel {
+      color: $mainWhiteColor;
+    }
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='url'],
+  input[type='password'] {
+    border: 1px solid $lightGrey;
+    width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    font-size: 1.4rem;
+    outline: none !important;
+    background-color: $bodyBcgColorGrey;
+    transition: all 0.3s linear;
+  }
+
+  textarea {
+    width: 100%;
+    border: 1px solid $lightGrey;
+    height: 40px;
+    padding: 4px 10px;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 1.4rem;
+    background-color: $bodyBcgColorGrey;
+    font-weight: $fontNormal;
+    font-family: $mainFontFamily;
+  }
+
+  textarea {
+    height: auto;
+    min-height: 100px;
+    font-weight: $fontNormal;
+    font-family: $mainFontFamily;
+  }
+}
+
+.checkboxLabel {
+  @include flex;
+  align-items: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+  position: relative;
+  > .checkboxText {
+    color: $darkOrange;
+    font-size: 12px;
+    display: inline-block;
+    padding-left: 10px;
+    width: calc(100% - 120px);
+    line-height: 1.4;
+    @include breakpoint('tablet-mini') {
+      width: 100%;
+      padding: 10px 0;
+    }
+  }
+  > .inputCheckbox {
+    height: 25px;
+    width: 25px;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border: 1px solid $mainBlackColor;
+    border-radius: 0;
+    outline: none;
+    transition-duration: 0.3s;
+    background-color: transparent;
+    cursor: pointer;
+    &:checked {
+      border: 1px solid $semiGrey;
+      background-color: $medium-grey;
+    }
+    &:active {
+      border: 2px solid #34495e;
+    }
+  }
+}
+
+.checkboxLabel > .inputCheckbox:checked + .checkboxText::before {
+  content: '\2713';
+  display: block;
+  text-align: center;
+  color: $mainBlackColor;
+  position: absolute;
+  font-size: 16px;
+  left: 0.7rem;
+  top: 0.4rem;
+}

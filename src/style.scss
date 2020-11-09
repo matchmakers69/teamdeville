@@ -1,0 +1,55 @@
+@import '../node_modules/include-media/dist/include-media';
+@import './styles/mixins.scss';
+@import './styles/typography.scss';
+@import './styles/layout.scss';
+@import './styles/grid.scss';
+@import './styles/buttons.scss';
+@import './styles/products.scss';
+@import './styles/forms.scss';
+@import './styles/loader.scss';
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.04em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.6rem;
+  overflow-x: hidden;
+  background-color: $mainWhiteColor;
+  font-family: $mainFontFamily;
+  font-weight: $fontNormal;
+  line-height: 1.2;
+  color: $middleGrey;
+  &.body-hidden {
+    overflow: hidden;
+  }
+  @include breakpoint('mini-tab') {
+    padding-top: 0;
+  }
+}
+
+.active {
+  display: block !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.space-between {
+  justify-content: space-between;
+}

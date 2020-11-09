@@ -1,0 +1,95 @@
+{
+  "id": 4353,
+  "date": "2019-09-19T15:47:20",
+  "date_gmt": "2019-09-19T14:47:20",
+  "guid": {
+    "rendered": "http://shamlewtak.com/?page_id=4353"
+  },
+  "modified": "2019-09-22T12:22:04",
+  "modified_gmt": "2019-09-22T11:22:04",
+  "slug": "contact",
+  "status": "publish",
+  "type": "page",
+  "link": "http://teamdeville.co.uk/contact/",
+  "title": {
+    "rendered": "Contact"
+  },
+  "content": {
+    "rendered": "\n\n\n\n\n<p></p>\n",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "",
+    "protected": false
+  },
+  "author": 1,
+  "featured_media": 0,
+  "parent": 0,
+  "menu_order": 0,
+  "comment_status": "closed",
+  "ping_status": "closed",
+  "template": "page-contact.php",
+  "meta": [],
+  "acf": {
+    "address_details_header": "Company address:",
+    "email_address_header": "Our email:",
+    "address_content": "Castleview, Highstreet Green, Halstead, Essex CO9 3LH (UK)",
+    "email_address": "teamdeville@yahoo.com",
+    "mobile_header": "Telephone number:",
+    "mobile_number": "07511 801317"
+  },
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO plugin v14.0.4 - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Contact | Teamdeville - Classic Ford Racing Parts including Anglia and Cortina</title>\n<meta name=\"robots\" content=\"index, follow\" />\n<meta name=\"googlebot\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<meta name=\"bingbot\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"http://teamdeville.co.uk/contact/\" />\n<meta property=\"og:locale\" content=\"en_GB\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Contact | Teamdeville - Classic Ford Racing Parts including Anglia and Cortina\" />\n<meta property=\"og:url\" content=\"http://teamdeville.co.uk/contact/\" />\n<meta property=\"og:site_name\" content=\"Teamdeville - Classic Ford Racing Parts including Anglia and Cortina\" />\n<meta property=\"article:modified_time\" content=\"2019-09-22T11:22:04+00:00\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\",\"@id\":\"http://teamdeville.co.uk/#organization\",\"name\":\"Teamdeville - classic race parts\",\"url\":\"http://teamdeville.co.uk/\",\"sameAs\":[],\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"http://teamdeville.co.uk/#logo\",\"inLanguage\":\"en-GB\",\"url\":\"http://teamdeville.co.uk/reactMonster/wp-content/uploads/2020/04/Screenshot-2020-04-03-at-11.11.47.png\",\"width\":148,\"height\":74,\"caption\":\"Teamdeville - classic race parts\"},\"image\":{\"@id\":\"http://teamdeville.co.uk/#logo\"}},{\"@type\":\"WebSite\",\"@id\":\"http://teamdeville.co.uk/#website\",\"url\":\"http://teamdeville.co.uk/\",\"name\":\"Teamdeville - Classic Ford Racing Parts including Anglia and Cortina\",\"description\":\"Teamdeville - classic race parts\",\"publisher\":{\"@id\":\"http://teamdeville.co.uk/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":\"http://teamdeville.co.uk/?s={search_term_string}\",\"query-input\":\"required name=search_term_string\"}],\"inLanguage\":\"en-GB\"},{\"@type\":\"WebPage\",\"@id\":\"http://teamdeville.co.uk/contact/#webpage\",\"url\":\"http://teamdeville.co.uk/contact/\",\"name\":\"Contact | Teamdeville - Classic Ford Racing Parts including Anglia and Cortina\",\"isPartOf\":{\"@id\":\"http://teamdeville.co.uk/#website\"},\"datePublished\":\"2019-09-19T14:47:20+00:00\",\"dateModified\":\"2019-09-22T11:22:04+00:00\",\"inLanguage\":\"en-GB\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"http://teamdeville.co.uk/contact/\"]}]}]}</script>\n<!-- / Yoast SEO plugin. -->",
+  "_links": {
+    "self": [
+      {
+        "href": "http://teamdeville.co.uk/wp-json/wp/v2/pages/4353"
+      }
+    ],
+    "collection": [
+      {
+        "href": "http://teamdeville.co.uk/wp-json/wp/v2/pages"
+      }
+    ],
+    "about": [
+      {
+        "href": "http://teamdeville.co.uk/wp-json/wp/v2/types/page"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "http://teamdeville.co.uk/wp-json/wp/v2/users/1"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "http://teamdeville.co.uk/wp-json/wp/v2/comments?post=4353"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 21,
+        "href": "http://teamdeville.co.uk/wp-json/wp/v2/pages/4353/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 4390,
+        "href": "http://teamdeville.co.uk/wp-json/wp/v2/pages/4353/revisions/4390"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "http://teamdeville.co.uk/wp-json/wp/v2/media?parent=4353"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}

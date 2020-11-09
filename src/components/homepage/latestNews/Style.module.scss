@@ -1,0 +1,101 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles//mixins.scss';
+
+.innerPostWrapper {
+  width: 100%;
+  background-color: $mainWhiteColor;
+  padding: 2.5rem 3rem 4rem 3rem;
+  border: 1px solid $lightGrey;
+  min-height: 340px;
+  @include flex;
+  @include flex-direction(column);
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  text-decoration: none;
+  align-items: stretch;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+  @include breakpoint('tablet-mini') {
+    min-height: 320px;
+    margin-bottom: 30px;
+  }
+
+  @include breakpoint('mini-tab') {
+    min-height: 300px;
+    margin-bottom: 30px;
+  }
+
+  @include breakpoint('phone') {
+    min-height: 0;
+    margin-bottom: 15px;
+  }
+
+  .postBody {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+    display: block;
+    text-decoration: none;
+    .postText {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+      line-height: 1.8;
+    }
+  }
+  .postHeader,
+  .subCatTitle {
+    padding: 0;
+    margin: 0;
+    line-height: 1.6;
+    text-align: left;
+  }
+  .stockAmount {
+    display: block;
+    padding-top: 5px;
+    font-size: 12px;
+    color: $darkOrange;
+  }
+  .postHeader {
+    margin-bottom: 10px;
+    width: 100%;
+    .productTitle,
+    .postTitle,
+    .postTitle {
+      font-weight: $fontSemiBold;
+      color: $navyGrey;
+      font-size: 22px;
+      margin-bottom: 0;
+      text-transform: uppercase;
+    }
+  }
+  .headerDetails {
+    @include flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 15px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .colDetails {
+      display: block;
+      width: 100%;
+      .postDetails {
+        display: block;
+        font-size: 12px;
+        color: #ccc;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+// Read more articles wrapper
+.buttonWrapper {
+  padding: 20px 15px 0 15px;
+  width: 100%;
+  @include flex;
+  @include flex-direction(column);
+  justify-content: center;
+  align-items: center;
+}

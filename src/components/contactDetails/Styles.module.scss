@@ -1,0 +1,24 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.contactRow {
+    margin-bottom: 15px;
+    &:last-child{
+        margin-bottom: 0;
+    }
+    p {
+        font-size: 16px;
+        padding: 0;
+        margin:0;
+        line-height: 1.5;
+        color: $mainGreyColor;
+    }
+    a {
+        font-size: 16px;
+        display: block;
+        color: $darkOrange;
+    }
+    .strongTag {
+        font-weight: $fontSemiBold;
+    }
+}

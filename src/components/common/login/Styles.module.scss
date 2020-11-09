@@ -1,0 +1,30 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.registerSection {
+    max-width: 960px;
+    width: 100%;
+    padding: 15px 20px 15px 20px;
+    margin: 0 auto;
+    border: 1px solid $medium-grey;
+}
+
+.registerSectionWrapper {
+    width: 100%;
+    max-width: 800px;
+    justify-content: center;
+    @include flex;
+   padding: 0 0 20px 60px;
+    @include flex-direction(column);
+    @include breakpoint('phone') {
+        padding-left: 0;
+    }
+
+    .buttonRegisterWrapper {
+        width: 100%;
+        justify-content: center;
+        @include flex;
+        @include flex-direction(column);
+        padding: 20px 0;
+    }
+}

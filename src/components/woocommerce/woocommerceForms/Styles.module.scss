@@ -1,0 +1,42 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+label {
+  display: block;
+  font-size: 10px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.textInput {
+  padding: 5px;
+  height: 40px;
+  text-shadow: none;
+  border: 1px solid $mediumGreyColor;
+  background-color: $mainWhiteColor;
+  width: 100%;
+  color: #666;
+}
+
+.formControl {
+  padding: 5px;
+  height: 40px;
+  color: #666;
+  font-size: 12px;
+  display: block;
+  width: 100%;
+  line-height: 1.25;
+  background-color: #fff;
+  background-image: none;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-border-radius: 0 !important;
+  border-radius: 0 !important;
+  text-shadow: none;
+  box-shadow: none;
+  cursor: pointer;
+  border: 1px solid $mediumGreyColor;
+}

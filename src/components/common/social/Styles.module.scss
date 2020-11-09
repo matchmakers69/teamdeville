@@ -1,0 +1,62 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.shareContainer {
+    width: 100%;
+    @include flex;
+    align-items: center;
+    .labelWrapper {
+        margin-right: 20px;
+        .labelTitle {
+            display: block;
+            font-size: 18px;
+            color: $navyGrey;
+            font-family: $seconfFontFamily;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    .socialMediaList {
+        @include flex;
+        margin: 0;
+        padding:0;
+        list-style: none;
+        align-items: center;
+        li {
+            margin-right: 15px;
+            cursor: pointer;
+            &:last-child {
+                margin-right: 0;
+            }
+            .socialMediaLink {
+                display: block;
+                width: 20px;
+                height:20px;
+                @include flex;
+                @include flex-direction(column);
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            .socialMediaLink > div {
+                width: 100%;
+                height: 100%;
+                @include flex;
+                @include flex-direction(column);
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                cursor: pointer;
+            }
+            .socialWrapper {
+                svg {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    fill: $middleGrey;
+                }
+            }
+        }
+    }
+}

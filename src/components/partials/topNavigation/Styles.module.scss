@@ -1,0 +1,394 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+.mainListNav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  @include flex;
+  position: relative;
+  background-color: $mainWhiteColor;
+  height: 100%;
+  @include breakpoint('phone') {
+    height: auto;
+    width: 100%;
+    @include flex-direction(column);
+  }
+  &:before {
+    @include breakpoint('tablet-large') {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: '';
+      right: -30px;
+      z-index: -1;
+      box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  li {
+    @include flex;
+    flex: auto;
+    @include breakpoint('phone') {
+      width: 100%;
+      height: 50px;
+      @include flex-direction(column);
+      justify-content: center;
+    }
+    a {
+      @include flex;
+      padding: 0 20px;
+      font-size: 1.4rem;
+      text-transform: capitalize;
+      cursor: pointer;
+      align-items: center;
+      color: $dark-links;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.3, 0.1, 0.3, 1);
+      width: 100%;
+      height: 100%;
+      @include breakpoint('phone') {
+        padding: 0 15px;
+      }
+      @include breakpoint('tablet-large') {
+        &:hover {
+          color: $mainWhiteColor;
+          outline: none !important;
+          background-color: $mainBlackColor;
+        }
+      }
+    }
+  }
+}
+
+// Categories menu
+.categoriesMenu {
+  visibility: hidden;
+  opacity: 0;
+  z-index: 100;
+  position: absolute;
+  height: calc(100vh - 200px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 570px;
+  top: 100%;
+  right: 0;
+  background-color: $mainWhiteColor;
+  pointer-events: none;
+  -webkit-box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.6s cubic-bezier(0.3, 0.1, 0.3, 1);
+  @include breakpoint('tab') {
+    position: fixed;
+    top: -40px;
+    right: 0;
+    bottom: 0;
+    padding-bottom: 40px;
+    -webkit-transform: translateY(40px);
+    transform: translateY(40px);
+    height: unset;
+  }
+  @include breakpoint('phone') {
+    width: 100vw;
+    max-width: 100vw;
+  }
+  &.menuActive {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .menuCatInner {
+    @include flex;
+    @include flex-direction(column);
+    min-height: 100%;
+    height: 0;
+    .sectionCategories {
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      @include flex;
+      @include flex-direction(column);
+      .menuCategoryMain {
+        position: relative;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        z-index: 150;
+        &:before {
+          position: absolute;
+          content: '';
+          height: 1px;
+          left: 90px;
+          right: 90px;
+          background-color: #f4f4f4;
+          z-index: 2;
+          top: 0;
+        }
+        .shadowPositioner {
+          position: absolute;
+          left: 0;
+          right: 15px;
+          height: 2px;
+          z-index: 1;
+          &.shadowPositionerTop {
+            background: linear-gradient(
+              180deg,
+              #f4f4f4 50%,
+              hsla(0, 0%, 100%, 0.1)
+            );
+            top: 0;
+          }
+          &.shadowPositionerBottom {
+            background: linear-gradient(
+              0deg,
+              #f4f4f4 50%,
+              hsla(0, 0%, 100%, 0.1)
+            );
+            bottom: 0;
+          }
+        }
+        .menuListWrapper {
+          width: 100%;
+          height: 100%;
+          overflow-y: auto;
+          overflow-x: hidden;
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          .topCategoryList {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            padding: 20px 70px;
+            margin-bottom: 0;
+            @include breakpoint('mini-tab') {
+              padding-left: 50px;
+              padding-right: 50px;
+            }
+            @include breakpoint('phone') {
+              padding-left: 30px;
+              padding-right: 30px;
+            }
+            .menuAccordionSection {
+              @include flex;
+              @include flex-direction(column);
+              margin-bottom: 15px;
+              line-height: 2;
+              &.hasChildrenSection {
+                position: relative;
+              }
+              &:last-child {
+                margin-bottom: 0;
+              }
+              .textCategory {
+                line-height: 2em;
+                color: $navyGrey;
+                font-size: 1.6rem;
+                text-decoration: none;
+                display: block;
+                overflow: hidden;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+
+                @include breakpoint('phone') {
+                  line-height: 1.8;
+                  font-size: 1.5rem;
+                }
+              }
+            }
+
+            .mainListButton {
+              margin: 0;
+              padding: 0;
+              @include transform(translate(0, 0));
+              transition: all 0.4s cubic-bezier(0.3, 0.1, 0.3, 1);
+              opacity: 1;
+              width: 100%;
+              text-shadow: none;
+              box-shadow: none;
+              cursor: pointer;
+              border: none;
+              background-color: transparent;
+              outline: none !important;
+              &.buttonParentActive {
+                .iconArrowDown {
+                  @include transform(rotate(#{-180}deg));
+                }
+              }
+              &.hasChildren {
+                position: relative;
+              }
+              .rowContainer {
+                @include flex;
+                transition: all 0.4s cubic-bezier(0.3, 0.1, 0.3, 1);
+                cursor: pointer;
+                overflow: hidden;
+                align-items: center;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                color: $navyGrey;
+                .buttonLink {
+                  padding: 0;
+                  margin: 0;
+                  text-align: left;
+                  outline: none !important;
+                  background-color: transparent;
+                  box-shadow: none;
+                  cursor: pointer;
+                  text-shadow: none;
+                  border: none;
+                  display: block;
+                  width: 100%;
+                }
+                .textCategory {
+                  line-height: 2em;
+                  color: $navyGrey;
+                  font-size: 1.6rem;
+                  text-decoration: none;
+                  @include breakpoint('phone') {
+                    line-height: 1.8;
+                    font-size: 1.5rem;
+                  }
+                }
+                .iconArrowDown {
+                  width: 20px;
+                  height: 20px;
+                  transition: all 0.3s ease-in-out;
+                  @include transform-origin(center center);
+                  svg {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    fill: #bd512f;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .footerCategories {
+      padding: 15px 90px;
+      @include flex;
+      align-items: center;
+      @include breakpoint('mini-tab') {
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+      @include breakpoint('phone') {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      .footerLabel {
+        display: block;
+        margin-right: 30px;
+        font-weight: $fontSemiBold;
+        font-size: 14px;
+        color: $mainGreyColor;
+      }
+      .socialMediaList {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        @include flex;
+        align-items: center;
+        li {
+          margin-right: 15px;
+          &:last-child {
+            margin-right: 0;
+          }
+          a {
+            display: block;
+            text-decoration: none;
+            width: 20px;
+            height: 20px;
+            overflow: hidden;
+            svg {
+              display: block;
+              width: 100%;
+              height: 100%;
+              fill: $darkOrange;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.subHiddenNavWrapper {
+  display: none;
+  transition: height 0.2s ease-out;
+  &.subHiddenNavWrapperActive {
+    .subMenu {
+      @include transform(scale(1));
+    }
+  }
+}
+
+.subMenu {
+  padding: 0 0 0 10px;
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  @include transform(scale(0));
+  transform-origin: top;
+  @include transition(all, 0.5s, ease-in-out);
+
+  li {
+    height: 45px;
+    @include flex;
+    @include flex-direction(column);
+    justify-content: center;
+    .subcategoryBtn {
+      border: none;
+      display: block;
+      text-shadow: none;
+      box-shadow: none;
+      outline: none !important;
+      padding: 0;
+      margin: 0;
+      font-size: 1.5rem;
+      width: 100%;
+      text-align: left;
+      background-color: transparent;
+
+      .subCategoryLink {
+        display: block;
+        text-decoration: none;
+        color: $navyGrey;
+        font-size: 1.5rem;
+        padding: 15px 5px;
+        @include breakpoint('phone') {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
+.newsSectionSwitcher {
+  height: 100%;
+  @include flex;
+  @include flex-direction(column);
+  justify-content: center;
+  align-items: center;
+  background-color: $bodyBcgColorGrey;
+  @include breakpoint('phone') {
+    height: 70px;
+  }
+  .newsButtonSwitcher {
+    text-transform: uppercase;
+    font-weight: $fontSemiBold;
+    color: $darkOrange;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0 10px;
+    height: 100%;
+  }
+}

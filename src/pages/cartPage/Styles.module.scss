@@ -1,0 +1,126 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.divDisabled {
+  pointer-events: none;
+  opacity: 0.4;
+  position: relative;
+  cursor: unset;
+}
+
+// Order form
+.orderFormContainer {
+  width: 100%;
+  padding: 15px 5px;
+  border: 1px solid $medium-grey;
+  max-width: 960px;
+  margin: 0 auto;
+  @include flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+}
+
+.buttonScrollContainer {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
+  padding: 10px 0;
+  @include flex;
+  justify-content: flex-end;
+  .scrollDownWrapper {
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: $darkOrange;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    outline: none !important;
+  }
+}
+
+.shoppingSlogan {
+  margin: 0 auto 20px auto;
+  width: 100%;
+  max-width: 960px;
+  background-color: $light-grey;
+  padding: 15px 20px;
+  border: 1px solid $medium-grey;
+  text-align: center;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+  p {
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+    font-size: 22px;
+    color: $mainBlackColor;
+    line-height: 1.5;
+    text-transform: uppercase;
+
+    @include breakpoint('phone') {
+      font-size: 18px;
+    }
+  }
+}
+
+.productTitleHeader {
+  font-family: $mainFontFamily;
+  font-weight: $fontNormal;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.orderDetailsText {
+  margin-bottom: 20px;
+  p {
+    line-height: 1.4;
+    font-size: 14px;
+    margin: 0;
+    color: $darkOrange;
+    background: $dark-grey;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-right: 40px;
+    padding-left: 20px;
+    color: $mainWhiteColor;
+    @include breakpoint('phone') {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
+}
+
+.resetFormLacalStorage {
+  @include flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  @include breakpoint('tablet-mini') {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .buttononResetForm {
+    max-width: 160px;
+    width: 100%;
+    margin-left: 10px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background-color: #3c3c3c;
+    color: #fff;
+    box-shadow: none;
+    text-shadow: none;
+    font-size: 1.2rem;
+    padding: 0 20px;
+    text-transform: uppercase;
+    font-weight: 400;
+    cursor: pointer;
+    @include breakpoint('tablet-mini') {
+      margin-left: 0;
+    }
+  }
+}

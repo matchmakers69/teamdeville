@@ -1,0 +1,174 @@
+@import './variables';
+@import './mixins';
+
+.whiteTitle {
+  color: $mainWhiteColor;
+}
+
+.orangeTitle {
+  color: $darkOrange;
+}
+
+.greyTitle {
+  color: $navyGrey;
+}
+
+.pagesHeader {
+  margin-bottom: 20px;
+}
+h1,
+.h1 {
+  font-weight: $fontSemiBold;
+  font-size: 24px;
+  color: $middleGrey;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  font-family: $seconfFontFamily;
+  @include breakpoint('tablet-medium') {
+    font-size: 28px;
+  }
+
+  @include breakpoint('tablet-large') {
+    font-size: 34px;
+  }
+}
+h2,
+.h2 {
+  font-weight: $oswaldSemiBold;
+  font-size: 22px;
+  color: $middleGrey;
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+  font-family: $seconfFontFamily;
+  @include breakpoint('tablet-medium') {
+    font-size: 26px;
+  }
+  @include breakpoint('tablet-large') {
+    font-size: 32px;
+  }
+}
+h3,
+.h3 {
+  font-size: 16px;
+  line-height: 1.2;
+  margin: 0 0 15px 0;
+  color: $middleGrey;
+  padding: 0;
+  font-family: $seconfFontFamily;
+  @include breakpoint('tablet-medium') {
+    font-size: 20px;
+  }
+}
+.h3 {
+  font-weight: $oswaldSemiBold;
+}
+h4,
+.h4 {
+  font-weight: $oswaldSemiBold;
+  font-size: 14px;
+  line-height: 1.2;
+  margin: 0 0 15px 0;
+  color: $middleGrey;
+  padding: 0;
+  font-family: $seconfFontFamily;
+  @include breakpoint('tablet-medium') {
+    font-size: 16px;
+  }
+}
+
+p {
+  font-weight: $fontNormal;
+  line-height: 1.8;
+}
+
+.sectionHeader {
+  margin: 0 0 15px 0;
+  width: 100%;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.smallTitle {
+  font-family: $seconfFontFamily;
+  font-weight: $oswaldSemiBold;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+.sectionTitle,
+.subSectionTitle {
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 15px;
+  display: inline-block;
+  font-family: $seconfFontFamily;
+  font-weight: $oswaldSemiBold;
+}
+
+.sectionTitle {
+  color: $navyGrey;
+  font-size: 38px;
+  @include breakpoint('mini-tab') {
+    font-size: 28px;
+  }
+  @include breakpoint('phone') {
+    font-size: 26px;
+  }
+  &:after {
+    position: absolute;
+    content: '';
+    width: 40%;
+    left: 0;
+    background-color: $darkOrange;
+    display: block;
+    height: 2px;
+    bottom: 0;
+  }
+}
+
+.subSectionTitle {
+  font-size: 34px;
+  @include breakpoint('phone') {
+    font-size: 28px;
+  }
+  &:after {
+    position: absolute;
+    content: '';
+    width: 40%;
+    left: 0;
+    background-color: $navyGrey;
+    display: block;
+    height: 2px;
+    bottom: 0;
+  }
+  &.border-full {
+    &:after {
+      width: 100%;
+    }
+  }
+  &.border-orange {
+    &:after {
+      background-color: $darkOrange;
+    }
+  }
+  &.border-white {
+    &:after {
+      background-color: $mainWhiteColor;
+    }
+  }
+}
+
+.stockAmount {
+  display: block;
+  padding-top: 5px;
+  font-size: 12px;
+  color: $darkOrange;
+}

@@ -1,0 +1,149 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables.scss';
+
+.popUpWindow {
+  position: fixed;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  content: '';
+  top: 0;
+  left: 0;
+  opacity: 1;
+
+  .modalWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+  }
+
+  .modalPopUp {
+    z-index: 100;
+    background: $mainWhiteColor;
+    position: absolute;
+    margin: 2rem auto;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
+    top: 50%;
+    left: 50%;
+    @include flex;
+    @include flex-direction(column);
+    border: 1px solid #e2e2e2;
+    @include transform(translate(-50%, -50%));
+    animation: showModal 0.5s ease-out forwards;
+    @include breakpoint('phone') {
+      max-width: 90%;
+    }
+
+    .messageWrapper {
+      @include flex;
+
+      flex-direction: column;
+      padding: 2rem 3rem;
+      width: 100%;
+      flex-wrap: wrap;
+      overflow: hidden;
+      @include breakpoint('phone') {
+        padding: 1rem 1rem;
+      }
+
+      .popUpDescription {
+        @include flex;
+        @include flex-direction(column);
+        justify-content: center;
+        align-items: center;
+        padding: 3rem 0 1.5rem 0;
+        position: relative;
+        .titlePopUpHeader {
+          text-align: inherit;
+          line-height: 1.5;
+          font-size: 20px;
+          color: $darkOrange;
+          padding: 0;
+          margin: 0 0 10px 0;
+          font-weight: $fontNormal;
+          font-family: $mainFontFamily;
+          opacity: 1;
+
+          @include breakpoint('phone') {
+            font-size: 1.6rem;
+          }
+        }
+        p {
+          font-weight: $fontNormal;
+          text-align: center;
+          font-size: 16px;
+          opacity: 1;
+          color: $mainBlackColor;
+          @include breakpoint('phone') {
+            font-size: 12px;
+          }
+        }
+      }
+      .contactButtonWrapper {
+        @include flex;
+        @include flex-direction(column);
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem 0;
+        position: relative;
+      }
+    }
+  }
+  .closePopUp {
+    @include flex;
+    @include flex-direction(column);
+    cursor: pointer;
+    width: 100%;
+    margin: 10px 0;
+    height: 30px;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+  }
+}
+
+@keyframes showModal {
+  0% {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes showModal {
+  0% {
+    opacity: 0;
+
+    -webkit-transform: translate(-50%, 100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%);
+  }
+}
+
+@-ms-keyframes showModal {
+  0% {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}

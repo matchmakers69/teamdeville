@@ -1,0 +1,200 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.innerProductWrapper {
+  width: 100%;
+  background-color: $mainWhiteColor;
+  padding: 1rem 1rem 1.5rem 1rem;
+  border: 1px solid $lightGrey;
+  min-height: 480px;
+  @include flex;
+  @include flex-direction(column);
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+  text-decoration: none;
+  margin-bottom: 0;
+  text-transform: uppercase;
+
+  @include breakpoint('tablet-mini') {
+    min-height: 420px;
+  }
+
+  @include breakpoint('mini-tab') {
+    min-height: 400px;
+  }
+
+  @include breakpoint('phone') {
+    min-height: 0;
+    padding: 1rem 1rem 4rem 1rem;
+  }
+
+  .productsBody {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    display: block;
+    text-decoration: none;
+    .imgWrapper {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding-bottom: 52.25%;
+      img {
+        height: auto;
+        vertical-align: middle;
+        max-width: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include transform(translate(-50%, -50%));
+      }
+    }
+  }
+  .productHeader,
+  .subCatTitle {
+    padding: 0;
+    margin: 0;
+    line-height: 1.6;
+    text-align: center;
+  }
+  .subCatTitle {
+    color: $middleGrey;
+    font-weight: $fontNormal;
+    font-size: 1.6rem;
+  }
+  .stockAmount {
+    display: block;
+    padding-top: 5px;
+    font-size: 12px;
+    color: $darkOrange;
+  }
+
+  .productHeader {
+    margin-bottom: 10px;
+    width: 100%;
+    .productTitle {
+      font-weight: $fontSemiBold;
+      color: $navyGrey;
+      font-size: 16px;
+    }
+  }
+  .priceWrapper {
+    width: 100%;
+    @include flex;
+    @include flex-direction(column);
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    .productPrice {
+      display: block;
+      font-weight: $fontSemiBold;
+      color: $darkGrey;
+      font-size: 1.8rem;
+    }
+  }
+}
+
+// Buttons
+.buttonIndicator {
+  opacity: 1;
+  cursor: pointer;
+  @include flex;
+  @include flex-direction(column);
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  overflow: hidden;
+  flex-wrap: wrap;
+  outline: none !important;
+  padding: 0;
+  margin: 0;
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.3;
+  }
+
+  &.largeIndButton {
+    width: 60px;
+    height: 60px;
+  }
+
+  &.mediumIndButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  &.darkIndButton {
+    background-color: $darkGrey;
+  }
+
+  &.orangeIndButton {
+    background-color: $darkOrange;
+  }
+
+  &.blackIndButton {
+    background-color: $mainBlackColor;
+  }
+
+  svg {
+    fill: #fff;
+    overflow: hidden;
+    width: 60%;
+    height: 60%;
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.paginationButtonInner {
+  @include flex;
+  align-items: center;
+  justify-content: flex-end;
+  @include breakpoint('mini-tab') {
+    width: 100%;
+  }
+}
+.paginationButtonInner > * {
+  margin-right: 1px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// Pagination page counter buttons
+.paginationWrapperInner {
+  @include flex;
+  @include flex-direction(column);
+  .indicatorInfoWrapper {
+    margin-bottom: 5px;
+    @include flex;
+    justify-content: flex-end;
+    .arrowInfo {
+      font-size: 12px;
+      display: inline-block;
+    }
+  }
+  .indicatorButtonsContainer {
+    @include flex;
+    .buttonCounter {
+      width: 40px;
+      height: 40px;
+      color: $mainWhiteColor;
+      @include flex;
+      @include flex-direction(column);
+      background-color: $darkGrey;
+      justify-content: center;
+      align-items: center;
+      span {
+        display: block;
+        color: inherit;
+        font-size: 14px;
+      }
+    }
+  }
+}

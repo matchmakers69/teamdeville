@@ -1,0 +1,160 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.sectionFooterTop {
+    width: 100%;
+    position: relative;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 6rem 3rem;
+    min-height: 400px;
+    @include breakpoint('phone') {
+        min-height: 0;
+        height: 400px;
+        padding: 4rem 1.5rem;
+    }
+    &.footerBck {
+        background-image: url(#{$assetPath}/banner-footer.jpg);
+    }
+    &.footerLoginBck {
+        background-image: url(#{$assetPath}/banner-login.jpg);
+    }
+}
+
+.contentFooterSection {
+    width: 100%;
+    padding: 3rem 0;
+    .innerContent {
+        width: 100%;
+        @include flex;
+        @include flex-direction(column);
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.sloganTitle {
+    padding: 0;
+    margin:0;
+    line-height: 1.2;
+    font-family: $seconfFontFamily;
+    font-weight: $oswaldBold;
+    font-size: 13rem;
+    text-transform: uppercase;
+    color: transparent;
+    background-size: 100% 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, .9), rgba(255, 255, 255, .8)), url(#{$assetPath}/image-teamdeville.jpg);
+    background-clip: text;
+    background-repeat: no-repeat, no-repeat;
+    background-blend-mode: saturation;
+    -webkit-background-clip: text;
+    margin-bottom: 40px;
+    -webkit-filter: grayscale(1); 
+    -webkit-filter: grayscale(100%); 
+    -moz-filter: grayscale(100%);
+    opacity: 0.3;
+    filter: gray; 
+    filter: grayscale(100%);
+    @include breakpoint('desktop') {
+        font-size: 10rem;
+    }
+    @include breakpoint('tablet-mini') {
+        font-size: 8rem;
+    }
+
+    @include breakpoint('phone') {
+        font-size: 3.5rem;
+    }
+}
+
+.footerSlogan {
+    padding: 0;
+    margin:0;
+    line-height: 1.2;
+    font-family: $seconfFontFamily;
+    font-weight: $oswaldBold;
+    font-size: 13rem;
+    text-transform: uppercase;
+    color: transparent;
+    background-size: 100% 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, .9), rgba(255, 255, 255, .8)), url(#{$assetPath}/image-teamdeville.jpg);
+    background-clip: text;
+    background-repeat: no-repeat, no-repeat;
+    background-blend-mode: saturation;
+    -webkit-background-clip: text;
+    margin-bottom: 40px;
+    -webkit-filter: grayscale(1); 
+    -webkit-filter: grayscale(100%); 
+    -moz-filter: grayscale(100%);
+    opacity: 0.3;
+    filter: gray; 
+    filter: grayscale(100%);
+
+         @include breakpoint('desktop') {
+        font-size: 10rem;
+    }
+
+    @include breakpoint('tablet-mini') {
+        font-size: 8rem;
+    }
+
+    @include breakpoint('phone') {
+        font-size: 3.5rem;
+    }
+}
+
+// Footer bottom
+.footerContainer {
+    background-color: $darkOrange;
+}
+.footerInner {
+    justify-content: center;
+    align-items: center;
+    @include breakpoint('mini-tab'){
+        padding: 15px 0;
+        @include flex-direction(column);
+    }
+    .footerColumn {
+        width: calc(33.333% - 30px);
+        padding: 15px;
+        @include flex;
+        @include flex-direction(column);
+        justify-content: center;
+        align-items: center;
+        @include breakpoint('mini-tab'){
+            width: 100%;
+            padding: 0;
+        }
+        &.footerColumnLogo {
+            .footerLogoLink {
+                display: block;
+                width: 150px;
+                height: 60px;
+                overflow: hidden;
+                @include breakpoint('mini-tab'){
+                    padding: 15px 0;
+                    height: 85px;
+                }
+                svg {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    fill: $mainWhiteColor;
+                    #tevilleText {
+                        fill: $mainWhiteColor;
+                    }
+                }
+            }
+        }
+        p {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            color: $mainWhiteColor;
+            text-transform: uppercase;
+            font-family: $seconfFontFamily;
+        }
+    }
+}
+

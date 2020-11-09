@@ -1,0 +1,40 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins.scss';
+
+.dropDownList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 15px;
+  z-index: 40;
+  background: $dark-grey;
+  max-width: 400px;
+  border: none;
+  padding: 0;
+  .dropDownListRow {
+    padding: 10px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid $mainWhiteColor;
+    @include flex;
+    align-items: center;
+    justify-content: space-between;
+    &:last-child {
+      border-bottom: 0;
+    }
+    .listLink {
+      font-size: 14px;
+      color: $mainWhiteColor;
+      text-decoration: none;
+      @include flex;
+      @include flex-direction(column);
+      align-items: center;
+      text-transform: lowercase;
+      span {
+        display: block;
+      }
+    }
+  }
+}

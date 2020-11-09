@@ -1,0 +1,508 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.rotatorWrapper {
+  width: 100%;
+  position: relative;
+  height: 100%;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease-out;
+
+  @include breakpoint('mini-tab') {
+    width: 100%;
+    height: auto;
+    padding-bottom: 56.25%;
+  }
+
+  .rotatorInner {
+    width: 100%;
+    @include flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+    @include transition(all, 0.45s, ease-in-out);
+    transform: translate(0);
+
+    .singleSlide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      left: 0;
+      top: 0;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.45s linear;
+      @include flex;
+      @include flex-direction(column);
+      align-items: flex-start;
+      justify-content: center;
+
+      &.activeSlide {
+        z-index: 4;
+        opacity: 1;
+        visibility: visible;
+        .singleStyleContent {
+          transform: translateX(0);
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      .singleStyleContent {
+        left: 0;
+        bottom: 25%;
+        padding: 15px 20px;
+        background-color: rgba($mainWhiteColor, 0.9);
+        transition: all 0.4s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-100%);
+        transition-delay: 0.5s;
+        position: absolute;
+        width: 100%;
+        max-width: calc(100% - 30px);
+        z-index: 6;
+        @include breakpoint('phone') {
+          background-color: rgba($mainWhiteColor, 0.7);
+          bottom: 50%;
+        }
+
+        .slideTittle {
+          padding: 0;
+          margin: 0;
+          line-height: 1.2;
+          color: $mainBlackColor;
+          font-size: 22px;
+
+          p {
+            color: inherit;
+            padding: 0;
+            margin: 0;
+            line-height: inherit;
+            font-size: inherit;
+            font-weight: 700;
+            font-style: italic;
+            @include breakpoint('phone') {
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .paginationWrapper {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    left: 0;
+    bottom: 30px;
+    @include flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    .pagButton {
+      box-shadow: none;
+      text-shadow: none;
+      border: 1px solid $lightGrey;
+      @include flex;
+      @include flex-direction(column);
+      justify-content: center;
+      align-items: center;
+      outline: none !important;
+      border-radius: 100%;
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+      margin-right: 10px;
+      cursor: pointer;
+      &:last-child {
+        margin-right: 0;
+      }
+      &.activePag {
+        border: 1px solid $darkOrange;
+        .paginationDot {
+          background-color: $darkOrange;
+        }
+      }
+      .paginationDot {
+        display: block;
+        border-radius: 100%;
+        width: 12px;
+        height: 12px;
+        background-color: $lightGrey;
+      }
+    }
+  }
+}
+
+// Home page intro text
+.titleContainer {
+  @include flex;
+
+  .mainPageTitle {
+    padding: 0;
+    margin: 0;
+    line-height: 1.2;
+    color: #262633;
+    position: relative;
+    word-break: break-word;
+    font-weight: $blackBold;
+    @include flex;
+    @include flex-direction(column);
+
+    .logoTitle,
+    .subTitleLogo {
+      display: block;
+    }
+
+    .logoTitle {
+      font-weight: inherit;
+      color: inherit;
+      line-height: 1em;
+      font-size: 55px;
+      letter-spacing: -3px;
+      @include breakpoint('tablet-mini') {
+        font-size: 45px;
+      }
+
+      @include breakpoint('phone') {
+        font-size: 40px;
+      }
+      @include breakpoint('phone') {
+        letter-spacing: 0;
+      }
+      @media (min-width: 1200px) {
+        font-size: calc(2.4vw + 2.4vh + 2vmin);
+      }
+      @media (min-width: 1440px) {
+        font-size: calc(2.6vw + 2.6vh + 2vmin);
+      }
+    }
+
+    .subTitleLogo {
+      font-weight: $blackBold;
+      color: inherit;
+      line-height: 1em;
+      font-size: 30px;
+      letter-spacing: -2px;
+      text-align: right;
+      @include breakpoint('tablet-mini') {
+        font-size: 25px;
+      }
+      @include breakpoint('phone') {
+        letter-spacing: 0;
+        font-size: 22px;
+      }
+      @media (min-width: 1200px) {
+        font-size: calc(1.5vw + 1.5vh + 1vmin);
+      }
+      @media (min-width: 1440px) {
+        font-size: calc(2vw + 2vh + 1vmin);
+      }
+    }
+  }
+}
+
+.containerTextHeader {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-out;
+  transform: translate(-100%);
+}
+
+.addressDetailsWrapper {
+  @include breakpoint('mini-tab') {
+    margin-bottom: 20px;
+  }
+  .addressHeader {
+    line-height: 1.2;
+    font-weight: 600;
+    font-size: 20px;
+    color: #262633;
+    width: 100%;
+    margin-bottom: 5px;
+    font-family: $mainFontFamily;
+    @include breakpoint('desktop') {
+      font-size: 18px;
+    }
+  }
+  .addressText {
+    margin: 0;
+    padding: 0;
+    line-height: 26px;
+    font-size: 18px;
+    color: #262633;
+    width: 100%;
+    @include breakpoint('desktop') {
+      font-size: 16px;
+    }
+
+    .addressTextInner {
+      display: block;
+    }
+  }
+}
+
+// Deliveries
+.innerColumnDelivery {
+  width: 100%;
+  padding: 0 1.5rem;
+  @include flex;
+  @include flex-direction(column);
+  @include breakpoint('mini-tab') {
+    padding: 1.5rem;
+  }
+
+  .textContainer {
+    p {
+      padding: 0;
+      margin: 0;
+      line-height: 1.8;
+      font-size: 1.4rem;
+      text-align: justify;
+    }
+  }
+
+  .deliveryColHeader {
+    margin-bottom: 10px;
+    @include flex;
+    align-items: center;
+    .deliveryIcon {
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      flex-wrap: wrap;
+      @include flex;
+      @include flex-direction(column);
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      margin: 0 10px 0 0;
+      svg {
+        padding: 0;
+        margin: 0;
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        fill: $darkOrange;
+      }
+    }
+    .colTitle {
+      font-size: 2rem;
+      padding: 0;
+      margin: 0;
+      line-height: 1.2;
+      font-weight: $fontSemiBold;
+      text-transform: uppercase;
+      color: $navyGrey;
+      letter-spacing: -0.2px;
+    }
+  }
+}
+
+// Latest products wrapper
+
+.latestProductsSection {
+  position: relative;
+  background-color: #323232;
+  background-image: url(#{$assetPath}/patternSwirl.svg);
+  background-size: 510px;
+  background-position: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: -45px;
+  @include breakpoint('mini-tab') {
+    margin-bottom: -200px;
+  }
+  @include breakpoint('phone') {
+    margin-bottom: -85px;
+  }
+}
+
+.sliderWrapper {
+  position: relative;
+  width: 100%;
+  top: 50px;
+  z-index: 50;
+  margin: 0;
+  @include transform(translate(0, -30%));
+  @include breakpoint('phone') {
+    top: -30px;
+    @include transform(translate(0, -5%));
+  }
+
+  .sliderHeader {
+    position: relative;
+    margin-bottom: 0;
+    padding-left: 15px;
+    @include breakpoint('mini-tab') {
+      text-align: center;
+    }
+    h3 {
+      border: none;
+      &:after,
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  .buttonIndicatorsWrapperInner {
+    width: 100%;
+    @include flex;
+    justify-content: space-between;
+    @include transform(translate(0, -50%));
+    top: 50%;
+    position: absolute;
+    z-index: 99;
+    @include breakpoint('phone') {
+      @include transform(translate(0, 0));
+      top: 0%;
+    }
+  }
+
+  .mainSliderLatest {
+    @include flex;
+    position: relative;
+    overflow: hidden;
+    .latestSingleSlide {
+      width: 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+      @include flex;
+      @include flex-direction(row);
+      justify-content: space-between;
+      align-items: flex-start;
+      @include breakpoint('mini-tab') {
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      @include breakpoint('phone') {
+        display: block;
+      }
+      .singleSlideProducts {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0 15px;
+      }
+    }
+    .sliderWrapperInner {
+      padding: 0;
+      width: 100%;
+      @include flex;
+    }
+  }
+}
+
+// Slides
+.innerProductWrapper {
+  width: 100%;
+  background-color: $mainWhiteColor;
+  padding: 1rem 1rem 1.5rem 1rem;
+  border: 1px solid $lightGrey;
+  min-height: 45rem;
+  @include flex;
+  @include flex-direction(column);
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+  text-decoration: none;
+  margin-bottom: 0;
+  text-transform: uppercase;
+
+  @include breakpoint('tablet-mini') {
+    min-height: 420px;
+  }
+
+  @include breakpoint('mini-tab') {
+    min-height: 430px;
+    margin-bottom: 20px;
+  }
+
+  @include breakpoint('phone') {
+    min-height: 0;
+    padding: 1rem 1rem 4rem 1rem;
+  }
+
+  .productsBody {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    display: block;
+    text-decoration: none;
+    .imgWrapper {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding-bottom: 52.25%;
+      img {
+        height: auto;
+        vertical-align: middle;
+        max-width: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include transform(translate(-50%, -50%));
+      }
+    }
+  }
+  .productHeader,
+  .subCatTitle {
+    padding: 0;
+    margin: 0;
+    line-height: 1.6;
+    text-align: center;
+  }
+  .subCatTitle {
+    color: $middleGrey;
+    font-weight: $fontNormal;
+    font-size: 1.6rem;
+  }
+
+  .stockAmount {
+    display: block;
+    padding-top: 5px;
+    font-size: 12px;
+    color: $darkOrange;
+  }
+
+  .productHeader {
+    margin-bottom: 10px;
+    width: 100%;
+    .productTitle {
+      font-weight: $fontSemiBold;
+      color: $navyGrey;
+      font-size: 16px;
+    }
+  }
+  .priceWrapper {
+    width: 100%;
+    @include flex;
+    @include flex-direction(column);
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    .productPrice {
+      display: block;
+      font-weight: $fontSemiBold;
+      color: $darkGrey;
+      font-size: 1.8rem;
+    }
+  }
+}

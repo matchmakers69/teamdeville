@@ -1,0 +1,130 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.alertModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  @include flex;
+  @include flex-direction(column);
+  @include transform(translate(-50%, -50%));
+  animation: showModal 1s ease-out forwards;
+  @include breakpoint('phone') {
+    max-width: 80%;
+  }
+  z-index: 9999;
+  width: 100%;
+  max-width: 600px;
+  outline: 0;
+  background: $mainWhiteColor;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  .modalHeader {
+    @include flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px 10px 20px;
+    background-color: transparent;
+    flex: 0 0 auto;
+    min-height: 70px;
+    .modalContentTop {
+      width: 100%;
+      text-align: center;
+      .modalHeaderTitle {
+        line-height: 1.5;
+        font-size: 20px;
+        color: $darkOrange;
+        padding: 0;
+        margin: 0;
+        font-weight: $fontNormal;
+        font-family: inherit;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+  .modalContent {
+    padding: 15px 20px;
+    flex: 1 0 auto;
+    -webkit-box-flex: 1;
+    font-family: $mainFontFamily;
+
+    p {
+      font-weight: $fontNormal;
+      text-align: center;
+      font-size: 16px;
+      color: $mainBlackColor;
+      @include breakpoint('phone') {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .modalFooter {
+    @include flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: $mainGreyColor;
+    flex-shrink: 0;
+    min-height: 50px;
+  }
+}
+
+.modalCloseButton {
+  outline: none !important;
+  background-color: transparent;
+  box-shadow: none;
+  text-shadow: none;
+  padding: 0 15px;
+  border: none;
+  cursor: pointer;
+  width: 130px;
+  height: 40px;
+  @include flex;
+  @include flex-direction(column);
+  align-items: center;
+  justify-content: center;
+  span {
+    color: $mainBlackColor;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}
+
+@keyframes showModal {
+  0% {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes showModal {
+  0% {
+    opacity: 0;
+
+    -webkit-transform: translate(-50%, 100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%);
+  }
+}
+
+@-ms-keyframes showModal {
+  0% {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}

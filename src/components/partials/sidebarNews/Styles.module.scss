@@ -1,0 +1,157 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.navigationSidebar {
+  background-color: $darkOrange;
+  position: fixed;
+  width: 100%;
+  max-width: 300px;
+  min-height: 100vh;
+  @include flex;
+  @include flex-direction(column);
+  flex-wrap: nowrap;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.3, 0.1, 0.3, 1);
+  @include transform(translate(-100%, 0));
+  &.panelInView {
+    opacity: 1;
+    visibility: visible;
+    @include transform(translate(0, 0));
+  }
+
+  .sidebarInner {
+    height: 100vh;
+    @include flex;
+    @include flex-direction(column);
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+
+    .headerSidebar {
+      flex: 0 0 auto;
+      @include flex;
+      height: 50px;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #fff;
+      .sidebarTitle {
+        color: #fff;
+        font-weight: $fontSemiBold;
+        line-height: 1.2;
+        padding: 0;
+        margin: 0;
+        font-size: 24px;
+        text-transform: uppercase;
+        padding: 0 15px;
+      }
+      .closeContainer {
+        @include flex;
+        padding: 10px 15px;
+        align-items: center;
+        cursor: pointer;
+        background-color: transparent;
+        border: none !important;
+        box-shadow: none;
+        text-shadow: none;
+        .closeText {
+          font-size: 12px;
+          display: block;
+          padding-right: 5px;
+          color: #fff;
+        }
+        .closePanelButton {
+          width: 30px;
+          height: 30px;
+          border: 1px solid #fff;
+          color: #fff;
+          font-weight: $fontSemiBold;
+          font-size: 14px;
+          background-color: transparent;
+          padding: 0;
+          margin: 0;
+          @include flex;
+          @include flex-direction(column);
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+      }
+    }
+    .sidebarContent {
+      flex: 1 0 auto;
+      padding: 15px;
+      -webkit-box-flex: 1;
+      .articlesSection {
+        @include flex;
+        width: 100%;
+        @include flex-direction(column);
+        .newsArticle {
+          width: 100%;
+          color: #fff;
+          margin-bottom: 25px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          .headerDetails {
+            margin-bottom: 15px;
+            .colDetails {
+              .postDetails {
+                display: block;
+                font-size: 12px;
+                color: rgba($mainWhiteColor, 0.8);
+              }
+            }
+          }
+          .postHeader {
+            margin-bottom: 10px;
+            .postTitle {
+              font-size: 18px;
+              color: $mainWhiteColor;
+              line-height: 1.2;
+              padding: 0;
+              margin: 0;
+            }
+          }
+          .postBody {
+            margin-bottom: 15px;
+            p {
+              line-height: 1.5;
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+      .newsButton {
+        @include flex;
+        height: 40px;
+        @include flex-direction(column);
+        border: 2px solid rgba($mainWhiteColor, 1);
+        align-items: center;
+        justify-content: center;
+        color: $mainWhiteColor;
+        text-decoration: none;
+        span {
+          color: inherit;
+        }
+      }
+    }
+
+    .footerSidebar {
+      padding: 15px;
+      flex-shrink: 0;
+    }
+  }
+}
